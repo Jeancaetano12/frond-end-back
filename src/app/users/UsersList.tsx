@@ -136,14 +136,18 @@ export default function UserList({ initialUsers }: { initialUsers: User[] }) {
                 <p className="text-gray-600 dark:text-gray-400">email: {user.email}</p>
                 <p className="text-gray-600 dark:text-gray-400">telefone: {user.telefone}</p>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Nascimento: {new Date(user.birth_date).toLocaleDateString('pt-br',
+                  Nascimento: {user.birth_date
+                    ? new Date(user.birth_date).toLocaleDateString('pt-br',
                     { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC'}
-                  )}
+                  )
+                    : 'Não informado'}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                  criado em: {new Date(user.created_at).toLocaleDateString('pt-BR', 
+                  criado em: {user.created_at
+                    ? new Date(user.created_at).toLocaleDateString('pt-BR', 
                     { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'}
-                  )}
+                  )
+                    : 'Não informado'}
                 </p>
               </div>
 
